@@ -31,7 +31,7 @@
 
         <div class="sidebar-content">
           <div class="mt-10 font-size-12"> <!-- mt-10 = margin-top: 1rem (10px), font-size-12 = font-size: 1.2rem (12px) -->
-            Nombre del Producto
+            <p class="font-italic"> Nombre </p>
           </div>
           <input type="text" class="form-control" placeholder="Nombre">
           <div class="mt-10 font-size-12"> <!-- mt-10 = margin-top: 1rem (10px), font-size-12 = font-size: 1.2rem (12px) -->
@@ -43,7 +43,18 @@
             Precio
           </div>
           <input type="text" class="form-control" placeholder="Precio">
+          <br>
+          
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-block btn-success" type="button">Agregar</button>
+            </div>
+            <div class="offset-1 col">
+              <button class="btn btn-block btn-warning" type="button">Cancelar</button>
+            </div>
+          </div>
 
+          
         </div>
 
 
@@ -53,10 +64,22 @@
       </div>
 
 
+      <hr>
+
+
       <div class="sidebar-content">
+        
+        <p class="text-monospace">
+          Francisco Montenegro
+        </p>
         <button class="btn btn-warning" type="button" onclick="halfmoon.toggleDarkMode()">
           <i class="fa fa-moon-o" aria-hidden="true"></i>
         </button>
+        <a href="https://github.com/fmontenegro0510/carritoReactJS" target="_blank">
+        <button class="btn btn-warning" type="button">
+          <i class="fa fa-github" aria-hidden="true"></i>
+        </button>
+      </a>
       </div>
 
 
