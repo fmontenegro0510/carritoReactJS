@@ -14,24 +14,24 @@ function form() {
   return (
     <Fragment>
           <form className="row" onSubmit={enviarDatos}>
-              <div class="mt-10 font-size-12"> 
+              <div className="mt-10 font-size-12"> 
                   Nombre
               </div>
-              <input type="text" class="form-control" placeholder="Agregue un nombre" />
-                  <div class="mt-10 font-size-12"> 
+              <input type="text" className="form-control" placeholder="Agregue un nombre" />
+                  <div className="mt-10 font-size-12"> 
                       Descripcion del Producto
                   </div>
-                  <textarea class="form-control" placeholder="Agregue una Descripción" />
-                  <div class="mt-10 font-size-12"> 
+                  <textarea className="form-control" placeholder="Agregue una Descripción" />
+                  <div className="mt-10 font-size-12"> 
                       Precio
                   </div>
-                  <input type="text" class="form-control" placeholder="Agregue un precio" />
-                          <div class="row">
-                              <div class="col">
-                                  <button class="btn btn-block btn-success" type="button">Agregar</button>
+                  <input type="text" className="form-control" placeholder="Agregue un precio" />
+                          <div className="row">
+                              <div className="col">
+                                  <button className="btn btn-block btn-success" type="button">Agregar</button>
                               </div>
-                              <div class="offset-1 col">
-                                  <button class="btn btn-block btn-warning" type="button">Cancelar</button>
+                              <div className="offset-1 col">
+                                  <button className="btn btn-block btn-warning" type="button">Cancelar</button>
                               </div>
                           </div>
             </form>
