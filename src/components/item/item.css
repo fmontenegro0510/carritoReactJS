@@ -1,0 +1,11 @@
+.title_card {
+    text-align: center;
+}
+.card_description {
+    text-align: center;
+}
+
+.card_button{
+    justify-content: center; 
+    place-content:space-evenly;
+}
