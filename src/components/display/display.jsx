@@ -4,7 +4,7 @@ export default function display() {
   return (
     <div>
         <h4>
-           Hola Mundo
+           Display Component 
         </h4>
     </div>
   )

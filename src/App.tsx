@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Display from './components/display/Display';
 import Item from "./components/item/Item";
+import Form from "./components/form/form";
 import './App.css'
 
 function App() {
@@ -10,6 +11,8 @@ function App() {
     <>
       <Display />      
       <Item />
+      <Form />
+
 
     </>
   )
