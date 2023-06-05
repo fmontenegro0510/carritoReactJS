@@ -4,7 +4,7 @@ function form() {
     const [item, setItem] = useState({
         nombre: '',
         descripcion: '', 
-        cantidad: 1
+        cantidad: ''
     })
 
     const handleInputChange = (event) => {
@@ -16,10 +16,21 @@ function form() {
         })
     }
 
-
     const enviarDatos = (event) =>{
         event.preventDefault()
-        console.log('enviando datos...' + item.nombre + ' ' + item.descripcion + ' ' + item.cantidad)
+        if (item.nombre ==="") {    
+            console.log("Nombre vacio")
+        }else if (item.descripcion ===""){
+            console.log("descripcion vacio")
+        }else if(item.cantidad ===""){
+            console.log("Cantidad Vacio")   
+
+        }
+
+        // console.log('enviando datos...' + item.nombre + ' ' + item.descripcion + ' ' + item.cantidad)
+        // event.target.reset();
+        // openModal()
+
     }
 
     const openModal = () =>{
@@ -49,7 +60,16 @@ function form() {
                                   <button className="btn btn-block btn-warning" type="button" onClick={openModal}>Cancelar</button>
                               </div>
                           </div>
+           
             </form>
+
+            <ul>
+                <li>{item.nombre}</li>
+                <li>{item.descripcion}</li>
+                <li>{item.cantidad}</li>
+
+
+            </ul>
     </Fragment>
   )
 }
