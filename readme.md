@@ -47,9 +47,8 @@ Para su desarrollo se utilizaron las siguientes tecnologias:
   
 
 3. Ejecuta el siguiente comando para instalar las dependencias:  `npm install`
-4. Luego, puedes iniciar la aplicación con el siguiente comando: `npm start`
-5. Esto abrirá la aplicación en tu navegador en [http://localhost:3000](http://localhost:3000).
-  
+4. Luego, puedes iniciar la aplicación con el siguiente comando: `npm run dev`
+5. Esto abrirá la aplicación en tu navegador en [http://localhost:5173](http://localhost:5173).
 
   
 
