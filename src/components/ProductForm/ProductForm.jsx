@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+
+
 function ProductForm({ onAddToCart }) {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -36,40 +38,40 @@ function ProductForm({ onAddToCart }) {
 
   return (
     <div className="form-section">
-      <h2>Agregar Producto</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Nombre:</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={handleNameChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="description">Descripción:</label>
-          <textarea
-            type="text"
-            id="description"
-            value={description}
-            onChange={handleDescriptionChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="price">Precio:</label>
-          <input
-            type="number"
-            id="price"
-            value={price}
-            onChange={handlePriceChange}
-          />
-        </div>
-        <button type="submit" disabled={!name || !price}>
-          Agregar
-        </button>
-      </form>
-    </div>
+    <h2>Agregar Producto</h2>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="name">Nombre:</label>
+        <input
+          type="text"
+          id="name"
+          value={name}
+          onChange={handleNameChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="description">Descripción:</label>
+        <input
+          type="text"
+          id="description"
+          value={description}
+          onChange={handleDescriptionChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="price">Precio:</label>
+        <input
+          type="number"
+          id="price"
+          value={price}
+          onChange={handlePriceChange}
+        />
+      </div>
+      <button type="submit" disabled={!name || !price}>
+        Agregar
+      </button>
+    </form>
+  </div>
   );
 }
 
