@@ -1,37 +1,48 @@
-import React from 'react'
-import Display from "./components/display/Display";
-import Form from "./components/form/Form";
-import Item from "./components/item/Item";
-import './App.css'
+import React, { useState } from 'react';
+import ProductForm from './components/ProductForm/ProductForm';
+import Cart from './components/Cart/Cart.jsx';
 
 function App() {
- // const [count, setCount] = useState(0)
+  const [cartItems, setCartItems] = useState([]);
 
- const eliminarItem = (id: number) => { 
-  console.log(id)
-   
- }
+  const handleAddToCart = (product) => {
+    setCartItems([...cartItems, product]);
+  };
 
+  const handleRemoveFromCart = (index) => {
+    const updatedCartItems = [...cartItems];
+    updatedCartItems.splice(index, 1);
+    setCartItems(updatedCartItems);
+  };
 
-const item = {
-  nombre: "Juan",
-  descripcion: "Descripcion",
-  cantidad: 12,
-  id:12
-}
+  const handleIncreaseQuantity = (index) => {
+    const updatedCartItems = [...cartItems];
+    updatedCartItems[index].quantity += 1;
+    setCartItems(updatedCartItems);
+  };
+
+  const handleDecreaseQuantity = (index) => {
+    const updatedCartItems = [...cartItems];
+    if (updatedCartItems[index].quantity > 1) {
+      updatedCartItems[index].quantity -= 1;
+      setCartItems(updatedCartItems);
+    }
+  };
+
+  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <>
-      {/* <Display />      
-      <Item />
-      <Form /> */}
-    {/* <Display valor="12" />*/}
-    <Display valor={12} />
-    <Form  /> 
-    <Item item={item} eliminarItem={eliminarItem}/>
-
-    </>
-  )
+    <div className="App">
+      <ProductForm onAddToCart={handleAddToCart} />
+      <Cart
+        cartItems={cartItems}
+        onRemoveFromCart={handleRemoveFromCart}
+        onIncreaseQuantity={handleIncreaseQuantity}
+        onDecreaseQuantity={handleDecreaseQuantity}
+        totalItems={totalItems}
+      />
+    </div>
+  );
 }
 
-export default App
+export default App;

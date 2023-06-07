@@ -1,36 +1,35 @@
-import Item from "../item/item"
+import React from 'react';
 
-const Cart = (items, eliminarItem ) =>{
-    return(
-    <>
-        {(items && items.length) ? (
-            <> 
-                <h2>Listado de Productos</h2>
-                <br />
-
-                {
-                    items.map( item =>(
-                        <Item 
-                            key={item.id}
-                            item={item}
-                            eliminarItem={eliminarItem}
-                        />
-                    )
-                    )
-                }            
-            </>
-            ):(
-            <>
-                <h2>No hay elementos en el chango</h2>
-                <p className="text-xl mt-5 mb-10 text-center">
-                    Comienza agregando productos {''}
-                    <span>y apareceran en este lugar</span>
-                </p>
-            </>
+function Cart({ cartItems, onRemoveFromCart, onIncreaseQuantity, onDecreaseQuantity, totalItems }) {
+  return (
+    <div className="cart-section">
+      <h2>Carrito de Compras</h2>
+      <div>
+        {cartItems.length === 0 ? (
+          <p>No hay productos en el carrito.</p>
+        ) : (
+          <ul>
+            {cartItems.map((item, index) => (
+              <li key={index}>
+                <span>{item.name}</span>
+                {item.description && <span>({item.description})</span>}
+                <span>Precio: ${item.price.toFixed(2)}</span>
+                <span>Cantidad: {item.quantity}</span>
+                <span>Precio Total: ${(item.price * item.quantity).toFixed(2)}</span>
+                <button onClick={() => onIncreaseQuantity(index)}>+</button>
+                <button onClick={() => onDecreaseQuantity(index)}>-</button>
+                <button onClick={() => onRemoveFromCart(index)}>Quitar</button>
+              </li>
+            ))}
+          </ul>
         )}
-
-    </>
-    )
+      </div>
+      <div>
+        <p>Cantidad de Productos: {totalItems}</p>
+        <p>Precio Total: ${cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</p>
+      </div>
+    </div>
+  );
 }
 
-export default Cart
+export default Cart;
