@@ -1,5 +1,15 @@
 import React from 'react';
-
+/**
+ * Renderiza un componente de formulario para agregar un producto al carrito de compras.
+ *
+ * @param {Object} props - es un objeto que contiene los siguientes elementos:
+ *   @param {Array} cartItems - es un array de productos en el carrito.
+ *   @param {Function} onRemoveFromCart - Es una funcion que remueve un producto del carrito.
+ *   @param {Function} onIncreaseQuantity - Es una funcion que aumenta la cantidad del producto.
+ *   @param {Function} onDecreaseQuantity - Es una funcion que disminuye la cantidad del producto.
+ *   @param {Number} totalItems - Es el numero total de productos en el carrito.
+ * @return {JSX.Element} retorn un elemento de React que representa el carrito de compras.
+ */
 function Cart({ cartItems, onRemoveFromCart, onIncreaseQuantity, onDecreaseQuantity, totalItems }) {
   return (
     <div className="cart-section">
