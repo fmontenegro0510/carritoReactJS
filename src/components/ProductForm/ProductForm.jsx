@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-
-
 /**
  * Representa un componente de tipo formulario de producto con inputs para nombre, descripción,
  *  y  precio. El handler onSubmit agrega un producto con los datos proporcionados al carrito
