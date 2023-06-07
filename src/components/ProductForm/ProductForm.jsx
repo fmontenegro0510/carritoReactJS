@@ -59,7 +59,6 @@ function ProductForm({ onAddToCart }) {
     };
 
     onAddToCart(product);
-
     setName('');
     setDescription('');
     setPrice('');

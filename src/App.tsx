@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import ProductForm from './components/ProductForm/ProductForm';
-import Cart from './components/Cart/Cart.jsx';
+import Cart from './components/Cart/Cart';
 import './App.css';
-
 /**
  * Renderiza una pantalla donde coexisten dos componentes formularios y el carrito de compras.
  *
