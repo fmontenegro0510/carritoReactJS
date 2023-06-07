@@ -1,6 +1,13 @@
 import React, {Fragment, useState} from 'react'
 
-function form() {
+const  form = () => {
+
+    const [nombre, setNombre] = useState("")
+    const [descripcion, setDescripcion] = useState("")
+    const [cantidad, setCantidad] = useState(0)
+    
+
+
     const [item, setItem] = useState({
         nombre: '',
         descripcion: '', 
@@ -38,7 +45,7 @@ function form() {
     }
 
   return (
-    <Fragment>
+    <>
           <form className="row" onSubmit={enviarDatos}>
               <div className="mt-10 font-size-12"> 
                   Nombre
@@ -70,7 +77,7 @@ function form() {
 
 
             </ul>
-    </Fragment>
+    </>
   )
 }
 
