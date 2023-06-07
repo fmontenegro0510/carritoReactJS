@@ -49,7 +49,7 @@ function ProductForm({ onAddToCart }) {
         </div>
         <div>
           <label htmlFor="description">Descripción:</label>
-          <input
+          <textarea
             type="text"
             id="description"
             value={description}
