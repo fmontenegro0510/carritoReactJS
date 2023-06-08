@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ProductForm from './components/ProductForm/ProductForm';
 import Cart from './components/Cart/Cart';
+import{ createTheme, NextUIProvider, Container, Card, Row, Text, Col, Spacer, Grid} from '@nextui-org/react';
 import './App.css';
 /**
  * Renderiza una pantalla donde coexisten dos componentes formularios y el carrito de compras.
@@ -29,7 +30,6 @@ function App() {
     updatedCartItems.splice(index, 1);
     setCartItems(updatedCartItems);
   };
-
     /**
    * Aumenta la cantidad de un producto del carrito de compras.
    *
@@ -41,7 +41,6 @@ function App() {
     updatedCartItems[index].quantity += 1;
     setCartItems(updatedCartItems);
   };
-
     /**
    * Decrementa la cantidad de un producto del carrito de compras.
    *
@@ -55,20 +54,73 @@ function App() {
       setCartItems(updatedCartItems);
     }
   };
-
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+ 
+// 2. Call `createTheme` and pass your custom values
+const theme = createTheme({
+  type: "dark", // it could be "light" or "dark"
+  theme: {
+    colors: {
+      // brand colors
+      // primaryLight: '$green200',
+      // primaryLightHover: '$green300',
+      // primaryLightActive: '$green400',
+      // primaryLightContrast: '$green600',
+      // primary: '#606464',
+      // primaryBorder: '$green500',
+      // primaryBorderHover: '$green600',
+      // primarySolidHover: '$green700',
+      // primarySolidContrast: '$white',
+      // primaryShadow: '$green500',
+
+      // primarytext: '#221D1F',
+
+
+
+
+
+      gradient: 'linear-gradient(45deg, $blue100 -25%, $pink500 -10%, $purple500 60%)',
+      link: '#5E1DAD',
+
+      // you can also create your own color
+      myColor: '#ff4ecd'
+
+      // ...  more colors
+    },
+    space: {},
+    fonts: {}
+  }
+})
 
   return (
-    <div className="App">
-      <ProductForm onAddToCart={handleAddToCart} />
-      <Cart
-        cartItems={cartItems}
-        onRemoveFromCart={handleRemoveFromCart}
-        onIncreaseQuantity={handleIncreaseQuantity}
-        onDecreaseQuantity={handleDecreaseQuantity}
-        totalItems={totalItems}
-      />
-    </div>
+    <NextUIProvider theme={theme}>
+      <Grid.Container gap={2}>
+      <Row gap={1}>
+        <Col>
+          <Card css={{ $$cardColor: '$colors$gradient' }}>              
+              <Card.Body>
+                <ProductForm onAddToCart={handleAddToCart} />
+              </Card.Body>
+          </Card>       
+        </Col>
+        <Col>
+            <Card css={{ $$cardColor: '$colors$primary' }}>
+              <Card.Body>
+                <Text h6 size={15} color="white" css={{ m: 0 }}>
+                  <Cart
+                    cartItems={cartItems}
+                    onRemoveFromCart={handleRemoveFromCart}
+                    onIncreaseQuantity={handleIncreaseQuantity}
+                    onDecreaseQuantity={handleDecreaseQuantity}
+                    totalItems={totalItems}
+                  />
+                </Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Grid.Container>
+    </NextUIProvider>
   );
 }
 

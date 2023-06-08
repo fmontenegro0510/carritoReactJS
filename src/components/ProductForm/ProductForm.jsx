@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Input, Spacer, Text, Button  } from "@nextui-org/react";
+
 /**
  * Representa un componente de tipo formulario de producto con inputs para nombre, descripción,
  *  y  precio. El handler onSubmit agrega un producto con los datos proporcionados al carrito
@@ -38,8 +40,6 @@ function ProductForm({ onAddToCart }) {
   const handlePriceChange = (e) => {
     setPrice(e.target.value);
   };
-
-
   /**
    * Envia el formulario, creando un objeto producto, con los datos proporcionados
    * agregando el producto al carrito y restablece el formulario.
@@ -61,19 +61,26 @@ function ProductForm({ onAddToCart }) {
     setDescription('');
     setPrice('');
   };
-
   return (
     <div className="form-section">
-    <h2>Agregar Producto</h2>
+      <Text
+        h1
+        size={60}
+        css={{
+          textGradient: "30deg, $pink600 -50%, $blue600 100%",
+        }}
+        weight="bold"
+      >
+        Agregar Productos
+      </Text>
+      <Spacer y={1} />
+
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="name">Nombre:</label>
-        <input
-          type="text"
+        <Input clearable bordered  type="text"
           id="name"
           value={name}
-          onChange={handleNameChange}
-        />
+          onChange={handleNameChange} />
       </div>
       <div>
         <label htmlFor="description">Descripción:</label>
@@ -93,6 +100,13 @@ function ProductForm({ onAddToCart }) {
           onChange={handlePriceChange}
         />
       </div>
+
+      <Spacer y={0.5} />
+      <Button size="xl" >Agregar</Button>
+
+
+
+
       <button type="submit" disabled={!name || !price}>
         Agregar
       </button>
